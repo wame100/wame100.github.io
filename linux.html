@@ -1,0 +1,13 @@
+<h2 id="toc_1">ssh登录配置</h2>
+
+<p>ssh的登录配置文件的位置为/etc/ssh/sshd_config<br />其中修改PermitRootLogin参数值为yes可以让root用户登录<br />将PermitEmptyPasswords 参数值修改为yes，允许登录密码为空</p>
+
+<h2 id="toc_2">修改DNS配置</h2>
+
+<h3 id="toc_3">临时修改dns</h3>
+
+<p>文件位置在/etc/resolv.conf<br />在文件中添加namesever 8.8.8.8和namesever 114.114.114.114<br />然后重启网络service network restart</p>
+
+<h3 id="toc_4">永久修改dns</h3>
+
+<p>/etc/resolvconf/resolv.conf.d/base（这个文件默认是空的）<br />在里面插入：<br />nameserver 8.8.8.8<br />nameserver 114.114.114.114<br />如果有多个DNS就一行一个<br />修改好保存，然后执行<br />resolvconf -u</p>
